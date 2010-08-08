@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Uploader form{% endblock %}
+
+{% block stylesheet %}
+<!--link rel="stylesheet" type="text/css" href="/media/css/fileuploader.css" /-->
+{% endblock %}
+
+{% block javascript %}
+<!--script src="/media/js/fileuploader.js" type="text/javascript"></script-->
+<!--script src="/media/js/gemuploader.js" type="text/javascript"></script-->
+{% endblock %}
+	
+{% block content%}
+
+{% if files %}
+    <ol>
+        <font color="green"><strong>File sent!</strong></font>
+    </ol>
+    <hr>
+{% endif %}
+
+{% if form.file.errors %}
+    <ol>
+    {% for error in form.file.errors %}
+        <font color="red"><strong> File - {{ error|escape }}</strong></font>
+    {% endfor %}
+    </ol>
+{% endif %}
+
+<div id="file-uploader">       
+    <noscript>          
+    </noscript>         
+</div>
+
+<form action="/uploader/" enctype="multipart/form-data" method="post">
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

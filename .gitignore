@@ -1,0 +1,7 @@
+*tmp
+*.bak
+*.log
+*.pyc
+*.swp
+*.svn
+*.svn/*
